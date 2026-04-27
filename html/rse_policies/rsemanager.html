@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -750,7 +750,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -933,7 +933,22 @@ Call with either rse and vo, or (in server mode) rse_id</p>
             </td>
             <td class="doc-returns-details">
               <div class="doc-md-description">
-                <p>a dict object with the following attributes: id                ...     an internal identifier rse               ...     the name of the RSE as string type              ...     the storage type odf the RSE e.g. DISK volatile          ...     boolean indicating if the RSE is volatile verify_checksum   ...     boolean indicating whether RSE supports requests for checksums deterministic      ...     boolean indicating of the naming of the files follows the defined determinism domain            ...     indicating the domain that should be assumed for transfers. Values are 'ALL', 'LAN', or 'WAN' protocols         ...     all supported protocol in form of a list of dict objects with the following structure - scheme              ...     protocol scheme e.g. http, srm, ... - hostname            ...     hostname of the site - prefix              ...     path to the folder where the files are stored - port                ...     port used for this protocol - impl                ...     naming the python class of the protocol implementation - extended_attributes ...     additional information for the protocol - domains             ...     a dict naming each domain and the priority of the protocol for each operation (lower is better, zero is not supported)</p>
+                <p>a dict object with the following attributes:
+id                ...     an internal identifier
+rse               ...     the name of the RSE as string
+type              ...     the storage type odf the RSE e.g. DISK
+volatile          ...     boolean indicating if the RSE is volatile
+verify_checksum   ...     boolean indicating whether RSE supports requests for checksums
+deterministic      ...     boolean indicating of the naming of the files follows the defined determinism
+domain            ...     indicating the domain that should be assumed for transfers. Values are 'ALL', 'LAN', or 'WAN'
+protocols         ...     all supported protocol in form of a list of dict objects with the following structure
+- scheme              ...     protocol scheme e.g. http, srm, ...
+- hostname            ...     hostname of the site
+- prefix              ...     path to the folder where the files are stored
+- port                ...     port used for this protocol
+- impl                ...     naming the python class of the protocol implementation
+- extended_attributes ...     additional information for the protocol
+- domains             ...     a dict naming each domain and the priority of the protocol for each operation (lower is higher priority, None means not supported)</p>
               </div>
             </td>
           </tr>
@@ -1633,7 +1648,9 @@ Providing a list indicates the bulk mode.</p>
             </td>
             <td class="doc-param-details">
               <div class="doc-md-description">
-                <p>a single dict or a list with dicts containing 'scope' and 'name' if LFNs are used and only 'name' if PFNs are used. E.g. {'name': '2_rse_remote_get.raw', 'scope': 'user.jdoe'}, {'name': 'user/jdoe/5a/98/3_rse_remote_get.raw'}</p>
+                <p>a single dict or a list with dicts containing 'scope' and 'name'
+if LFNs are used and only 'name' if PFNs are used.
+E.g. {'name': '2_rse_remote_get.raw', 'scope': 'user.jdoe'}, {'name': 'user/jdoe/5a/98/3_rse_remote_get.raw'}</p>
               </div>
               <p>
                   <span class="doc-param-annotation">
@@ -1840,7 +1857,13 @@ Providing a list indicates the bulk mode.</p>
             </td>
             <td class="doc-param-details">
               <div class="doc-md-description">
-                <p>a single dict or a list with dicts containing 'scope' and 'name'. Examples: [ {'name': '1_rse_local_put.raw', 'scope': 'user.jdoe', 'filesize': 42, 'adler32': '87HS3J968JSNWID'}, {'name': '2_rse_local_put.raw', 'scope': 'user.jdoe', 'filesize': 4711, 'adler32': 'RSSMICETHMISBA837464F'} ] If the 'filename' key is present, it will be used by Rucio as the actual name of the file on disk (separate from the Rucio 'name').</p>
+                <p>a single dict or a list with dicts containing 'scope' and 'name'.
+Examples:
+[
+{'name': '1_rse_local_put.raw', 'scope': 'user.jdoe', 'filesize': 42, 'adler32': '87HS3J968JSNWID'},
+{'name': '2_rse_local_put.raw', 'scope': 'user.jdoe', 'filesize': 4711, 'adler32': 'RSSMICETHMISBA837464F'}
+]
+If the 'filename' key is present, it will be used by Rucio as the actual name of the file on disk (separate from the Rucio 'name').</p>
               </div>
               <p>
                   <span class="doc-param-annotation">
@@ -2380,7 +2403,14 @@ Providing a list indicates the bulk mode.</p>
             </td>
             <td class="doc-param-details">
               <div class="doc-md-description">
-                <p>a single dict or a list with dicts containing 'scope', 'name', 'new_scope' and 'new_name' if LFNs are used or only 'name' and 'new_name' if PFNs are used. If 'new_scope' or 'new_name' are not provided, the current one is used. Examples: [ {'name': '3_rse_remote_rename.raw', 'scope': 'user.jdoe', 'new_name': '3_rse_new.raw', 'new_scope': 'user.jdoe'}, {'name': 'user/jdoe/d9/cb/9_rse_remote_rename.raw', 'new_name': 'user/jdoe/c6/4a/9_rse_new.raw'} ]</p>
+                <p>a single dict or a list with dicts containing 'scope', 'name', 'new_scope' and 'new_name'
+if LFNs are used or only 'name' and 'new_name' if PFNs are used.
+If 'new_scope' or 'new_name' are not provided, the current one is used.
+Examples:
+[
+{'name': '3_rse_remote_rename.raw', 'scope': 'user.jdoe', 'new_name': '3_rse_new.raw', 'new_scope': 'user.jdoe'},
+{'name': 'user/jdoe/d9/cb/9_rse_remote_rename.raw', 'new_name': 'user/jdoe/c6/4a/9_rse_new.raw'}
+]</p>
               </div>
               <p>
                   <span class="doc-param-annotation">
@@ -3052,10 +3082,10 @@ Providing a list indicates the bulk mode.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
